@@ -1,4 +1,4 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=8D00F7&width=435&lines=The+five+boxing+wizards+jump+quickly)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&duration=5500&pause=1000&color=8D00F7&background=FF000000&width=435&lines=Would+you+know+my+name;If+i+saw+you+in+heaven%3F)](https://git.io/typing-svg)
 
 <!--
 **feelgxxd/feelgxxd** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
