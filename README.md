@@ -1,16 +1,31 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=25&duration=5500&pause=1000&color=8D00F7&background=FF000000&width=435&lines=Would+you+know+my+name;If+i+saw+you+in+heaven%3F)](https://git.io/typing-svg)
+# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=500&color=F7F7F7&width=435&lines=I+am+a+Developer;I+am+a+Programmer;I+am+a+Founder;I+am+Open+to+Work)](https://git.io/typing-svg)
 
-<!--
-**feelgxxd/feelgxxd** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Hi, I'm Berk 👋
 
-Here are some ideas to get you started:
+I’m a Türkiye based **gameplay systems–focused software developer** who enjoys building interactive mechanics, simulations, and tools that sit at the intersection of **games, algorithms, and real-time systems**.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+My main background is in **game development**, especially movement mechanics, procedural systems, and simulation-driven gameplay, but I also build **Python tools**, **web projects**, and **backend systems** when the problem calls for it.
+
+---
+## 🔧 What I Work On
+
+- 🎮 **Gameplay & Systems Development**  
+  Movement mechanics, procedural generation, agent-based systems, and game logic.
+
+- 🧠 **Simulations & Algorithms**  
+  Emergent behavior, crowd dynamics, and rule-driven systems using Python.
+
+- 🛠️ **Tooling & Automation**  
+  Small but practical tools to support development workflows.
+
+- 🌐 **Web & Backend**  
+  JavaScript, HTML/CSS, and backend logic for production-minded projects.
+  
+---
+
+## 📫 Get in Touch
+
+- 🌐 https://berkbeken.xo.je
+- 🌐 https://itself.online
+- 📧 berkbeken@outlook.com
+- 💼 https://www.linkedin.com/in/berk-beken/
