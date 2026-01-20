@@ -4,7 +4,7 @@
 
 I’m a Türkiye based **gameplay systems–focused software developer** who enjoys building interactive mechanics, simulations, and tools that sit at the intersection of **games, algorithms, and real-time systems**.
 
-My main background is in **game development**, especially movement mechanics, procedural systems, and simulation-driven gameplay, but I also build **Python tools**, **web projects**, and **backend systems** when the problem calls for it.
+My main background is in **game development**, especially movement mechanics, procedural systems, and simulation-driven gameplay, but I also build **tools**, **web projects**, and **backend systems** when the problem calls for it.
 
 ---
 ## 🔧 What I Work On
