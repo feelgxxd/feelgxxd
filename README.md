@@ -33,5 +33,5 @@ My main background is in **game development**, especially movement mechanics, pr
 
 - https://berkbeken.xo.je
 - https://itself.online
-- berkbeken@outlook.com
+- berkbeken@itself.online
 - https://www.linkedin.com/in/berk-beken/
