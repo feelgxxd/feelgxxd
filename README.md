@@ -25,7 +25,7 @@ My main background is in **game development**, especially movement mechanics, pr
 ## My Arsenal
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,js,php,python,cs,unity,cpp,cmake,lua,typescript" />
+    <img src="https://skillicons.dev/icons?i=html,css,js,typescript,php,python,cs,unity,cpp,cmake,lua" />
   </a>
 </p>
 
