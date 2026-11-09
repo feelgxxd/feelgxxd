@@ -1,37 +1,9 @@
-# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=500&color=F7F7F7&width=435&lines=I+am+a+Developer;I+am+a+Programmer;I+am+a+Founder;I+am+Open+to+Work)](https://git.io/typing-svg)
+<a href="https://berkbeken.xo.je"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg"><img alt="feelgxxd, a.k.a. Berk Beken, game & software developer" src="assets/hero-dark.svg" width="100%"></picture></a>
 
-# Hi, I'm Berk
+<p><a href="https://berkbeken.xo.je/projects/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-projects-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/btn-projects-light.svg"><img alt="see projects" src="assets/btn-projects-dark.svg" width="24%"></picture></a>&nbsp;<a href="mailto:berkbeken@outlook.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-contact-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/btn-contact-light.svg"><img alt="get in touch" src="assets/btn-contact-dark.svg" width="24%"></picture></a></p>
 
-I’m a Türkiye based **gameplay systems–focused software developer** who enjoys building interactive mechanics, simulations, and tools that sit at the intersection of **games, algorithms, and real-time systems**.
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ticker-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/ticker-light.svg"><img alt="sh*t that i have to deal with on a daily basis" src="assets/ticker-dark.svg" width="100%"></picture>
 
-My main background is in **game development**, especially movement mechanics, procedural systems, and simulation-driven gameplay, but I also build **tools**, **web projects**, and **backend systems** when the problem calls for it.
+<a href="https://berkbeken.xo.je/map/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sec-01-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/sec-01-light.svg"><img alt="01 what i do" src="assets/sec-01-dark.svg" width="100%"></picture></a>
 
----
-## What I Work On
-
-- **Gameplay & Systems Development**  
-  Movement mechanics, procedural generation, agent-based systems, and game logic.
-
-- **Simulations & Algorithms**  
-  Emergent behavior, crowd dynamics, and rule-driven systems using Python.
-
-- **Tooling & Automation**  
-  Small but practical tools to support development workflows.
-
-- **Web & Backend**  
-  JavaScript, HTML/CSS, and backend logic for production-minded projects.
-  
----
-## My Arsenal
-<p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,js,typescript,php,python,cs,unity,cpp,cmake,lua" />
-  </a>
-</p>
-
-## Get in Touch
-
-- https://berkbeken.xo.je
-- https://itself.online
-- berkbeken@itself.online
-- https://www.linkedin.com/in/berk-beken/
+<p align="center"><a href="https://berkbeken.xo.je/projects/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/track-gameplay-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/track-gameplay-light.svg"><img alt="track 01: gameplay" src="assets/track-gameplay-dark.svg" width="33%"></picture></a><a href="https://berkbeken.xo.je/projects/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/track-engine-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/track-engine-light.svg"><img alt="track 02: engine & tools" src="assets/track-engine-dark.svg" width="33%"></picture></a><a href="https://berkbeken.xo.je/projects/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/track-web-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/track-web-light.svg"><img alt="track 03: web & infra" src="assets/track-web-dark.svg" width="33%"></picture></a></p>
