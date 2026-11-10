@@ -194,7 +194,7 @@ const TAPES = [
   { side: 'A', kind: 'sim', year: 2026, title: 'crowd dynamics', repo: 'emergent-crowd-dynamics',
     desc: 'real-time agent-based simulation of pressure, personal space and local order in collective movement.', stack: ['Python'] },
   { side: 'A', kind: 'sim', year: 2026, title: 'cave gen', repo: 'procedural-cave-generation',
-    desc: 'an interactive procedural cave generation algorithm, in python.', stack: ['Python'] },
+    desc: 'a real-time cellular automata playground for game-ready caves, with tunable density, openness and connectivity.', stack: ['Python'] },
   { side: 'B', kind: 'game', year: 2026, title: '8a8atro', repo: '8a8atro',
     desc: 'a smaller demake of balatro, made in pico-8.', stack: ['PICO-8', 'Lua'] },
   { side: 'B', kind: 'game', year: 2025, title: 'crt invaders', repo: 'crt-invaders', status: 'shipped',
@@ -206,7 +206,7 @@ const reel = (cx, wound, delay) => `<g transform="translate(${cx} 78)">
   ${[0, 60, 120, 180, 240, 300].map((a) => `<rect x="-1.5" y="-11" width="3" height="5" fill="var(--line-2)" transform="rotate(${a})"/>`).join('')}
   <circle r="4" fill="#15130f"/></g></g>`;
 const cassette = (tp, i) => {
-  const wl = 14 + ((i * 7) % 9), wr = 23 - ((i * 7) % 9);
+  const wl = 12 + ((i * 5) % 8), wr = 19 - ((i * 5) % 8); // wound tape, kept inside the window
   return `<svg xmlns="http://www.w3.org/2000/svg" class="cas" viewBox="0 0 270 158">
   <rect x=".5" y=".5" width="269" height="157" rx="10" fill="var(--panel-2)" stroke="var(--line-2)"/>
   ${[[9, 9], [261, 9], [9, 149], [261, 149]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2.6" fill="var(--bg)" stroke="var(--line-2)"/>`).join('')}
@@ -307,7 +307,65 @@ const footer = (t) => {
 <span class="tape"><span class="l">TAPE</span><span>00${digit(10, 6000)}:${digit(6, 600)}${digit(10, 100)}</span></span>`, t, 'sh*t that i have to deal with on a daily basis');
 };
 
+// ================= REPO BANNERS + SOCIAL PREVIEWS =================
+// Banner: top of each showcased repo's README (both themes, served from this repo).
+// Social: the 1280x640 link-preview card, uploaded by hand in each repo's settings.
+const tapeId = (tp, i) => `${tp.side}-${String(i + 1).padStart(2, '0')}`;
+const TAPE_TEXT_CSS = `
+  .mk{color:var(--fg);flex:none}
+  .eb{font:500 11px/1.5 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:.6em}
+  .eb b{color:var(--accent-text);font-weight:500}
+  .ti{font:700 var(--ts)/1 'Chakra Petch',sans-serif;text-transform:uppercase;letter-spacing:.01em;color:var(--fg)}
+  .ds{color:var(--dim);line-height:1.6}
+  .tg{display:flex;gap:6px;flex-wrap:wrap}
+  .spin{animation:spin 3.6s linear infinite}
+  @keyframes spin{to{transform:rotate(-360deg)}}
+  .cas{display:block;width:100%;height:auto}`;
+const tapeText = (tp, i) => `<p class="eb"><span class="led"></span><b>${tapeId(tp, i)}</b> · ${tp.kind} · ${tp.year}</p>
+    <h1 class="ti">${esc(tp.title)}</h1>
+    <p class="ds">${esc(tp.desc)}</p>
+    <p class="tg">${tp.demo ? '<span class="tag live">● live demo</span>' : tp.status ? `<span class="tag acc">${tp.status}</span>` : ''}${tp.stack.map((s) => `<span class="tag">${esc(s)}</span>`).join('')}</p>`;
+const banner = (t, tp, i) => svg(W, 236, [F.d600, F.d700, F.m400, F.m500], TAPE_TEXT_CSS + `
+  .root{background:var(--bg);border:1px solid var(--line);border-radius:10px}
+  .top{height:3px;background:var(--orange)}
+  .body{display:grid;grid-template-columns:290px 1fr;gap:28px;padding:20px 26px 0;align-items:center;--ts:44px}
+  .txt{display:flex;flex-direction:column;gap:10px;min-width:0}
+  .ds{font-size:13px;max-width:52ch}
+  .brand{position:absolute;top:16px;right:20px;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mute);z-index:6}
+  .brand .mk{width:36px;height:21px}`,
+  `<div class="scan" style="position:absolute;inset:0;z-index:5;pointer-events:none"></div>
+<div class="top"></div>
+<span class="brand">${logo('mk')}feelgxxd</span>
+<section class="body">${cassette(tp, i)}<div class="txt">${tapeText(tp, i)}</div></section>
+<span class="stripe"></span>`, t, `${tp.title}: ${tp.desc}`);
+// drawn at 830x415 and scaled to 1280x640 when it is rasterized
+const social = (t, tp, i) => svg(W, 415, [F.d600, F.d700, F.m400, F.m500], TAPE_TEXT_CSS + `
+  .root{background:var(--bg);display:flex;flex-direction:column}
+  .fr{position:absolute;inset:18px;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;overflow:hidden}
+  .hd{display:flex;align-items:center;gap:12px;padding:14px 22px;border-bottom:1px solid var(--line)}
+  .hd .mk{width:50px;height:29px}
+  .hd p{font:600 15px/1.1 'Chakra Petch',sans-serif;letter-spacing:.04em;text-transform:uppercase}
+  .hd small{display:block;font:400 11px/1.3 'IBM Plex Mono',monospace;color:var(--dim);text-transform:none;letter-spacing:0}
+  .body{flex:1;display:grid;grid-template-columns:300px 1fr;gap:30px;padding:0 26px;align-items:center;--ts:48px}
+  .txt{display:flex;flex-direction:column;gap:12px;min-width:0}
+  .ds{font-size:13.5px}
+  .bar{display:flex;align-items:center;gap:12px;padding:12px 22px;border-top:1px solid var(--line);background:var(--bg-2);font-size:12.5px;color:var(--mute)}
+  .bar b{color:var(--accent-text);font-weight:400}
+  .bar .r{margin-left:auto}
+  .fr .stripe{height:3px}`,
+  `<div class="scan" style="position:absolute;inset:0;z-index:5;pointer-events:none"></div>
+<div class="fr">
+  <header class="hd">${logo('mk')}<p>Berk Beken<small>// feelgxxd</small></p></header>
+  <section class="body">${cassette(tp, i)}<div class="txt">${tapeText(tp, i)}</div></section>
+  <footer class="bar"><span class="led"></span><span><b>github.com/feelgxxd</b>/${esc(tp.repo)}</span><span class="r">berkbeken.xo.je</span></footer>
+  <span class="stripe"></span>
+</div>`, t, `${tp.title}: ${tp.desc}`);
+
 // ================= write assets =================
+mkdirSync(new URL('banners/', ASSETS), { recursive: true });
+const SOCIAL = new URL('../social/', import.meta.url);
+mkdirSync(SOCIAL, { recursive: true });
+TAPES.forEach((tp, i) => writeFileSync(new URL(`${tp.repo}.svg`, SOCIAL), social(THEMES.dark, tp, i).replace(/width="830" height="415"/, 'width="1280" height="640"')));
 const files = [];
 const put = (name, s) => { writeFileSync(new URL(name, ASSETS), s); files.push([name, s.length]); };
 for (const [theme, t] of Object.entries(THEMES)) {
@@ -319,7 +377,10 @@ for (const [theme, t] of Object.entries(THEMES)) {
   put(`sec-tapes-${theme}.svg`, secHead(t, '01', 'selected tapes', 'all repos'));
   put(`sec-elsewhere-${theme}.svg`, secHead(t, '02', 'off github', 'itch.io'));
   put(`sec-logs-${theme}.svg`, secHead(t, '03', 'latest logs', 'all logs'));
-  TAPES.forEach((tp, i) => put(`tape-${tp.repo}-${theme}.svg`, tape(t, tp, i)));
+  TAPES.forEach((tp, i) => {
+    put(`tape-${tp.repo}-${theme}.svg`, tape(t, tp, i));
+    put(`banners/${tp.repo}-${theme}.svg`, banner(t, tp, i));
+  });
   ELSEWHERE.forEach((g) => put(`game-${g.title}-${theme}.svg`, elsewhere(t, g)));
   put(`footer-${theme}.svg`, footer(t));
 }
