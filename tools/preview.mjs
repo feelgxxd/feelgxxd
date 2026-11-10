@@ -10,7 +10,7 @@ const inline = (s) => s.replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\[([^\
 for (const [theme, bg, box, fg, link, codeBg] of [['dark', '#0d1117', '#30363d', '#e6edf3', '#4493f8', '#656c7633'], ['light', '#ffffff', '#d1d9e0', '#1f2328', '#0969da', '#818b981f']]) {
   for (const [name, w] of [['desk', 880], ['mob', 390]]) {
     let body = md.replace(/<source[^>]*>/g, '').replace(/src="assets\/([a-z0-9-]+)-dark\.svg"/g, `src="../assets/$1-${theme}.svg"`);
-    if (name === 'mob') body = body.replace(/assets\/(hero|btn-[a-z]+)-(dark|light)\.svg/g, 'assets/$1-mobile-$2.svg');
+    if (name === 'mob') body = body.replace(/assets\/(btn-[a-z]+)-(dark|light)\.svg/g, 'assets/$1-mobile-$2.svg');
     body = body.split(/\n\s*\n/).map((b) => {
       if (b.startsWith('- ')) return `<ul>${b.split('\n').map((l) => `<li>${inline(l.slice(2))}</li>`).join('')}</ul>`;
       return b.startsWith('<p') || b.startsWith('<br') ? b : `<p>${b}</p>`;
