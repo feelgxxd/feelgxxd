@@ -14,7 +14,7 @@ const GH = 'https://github.com/feelgxxd';
 const LINKS = {
   site: SITE,
   itch: 'https://berkbeken.itch.io',
-  linkedin: 'https://www.linkedin.com/in/berkbeken/',
+  linkedin: 'https://www.linkedin.com/in/berk-beken/',
   mail: 'mailto:berkbeken@outlook.com',
 };
 
