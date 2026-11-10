@@ -6,6 +6,7 @@ const src = {
   knightfall: 'public/media/projects/knightfall/03_combo.webp',
   claylings: 'public/media/2025/09/GIF-13-09-2025-00-54-28-still.webp',
   cinerace: 'screenshots_for_projects/web/cinerace.png',
+  idle: 'public/media/projects/idle-of-carbon-city/cover.webp',
 };
 (async () => {
   for (const [k, p] of Object.entries(src)) {

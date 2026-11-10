@@ -80,16 +80,14 @@ ${html}
 const logoSrc = readFileSync(here('feelgxxd.svg'), 'utf8');
 const logo = (cls) => `<svg xmlns="http://www.w3.org/2000/svg" class="${cls}" viewBox="${logoSrc.match(/viewBox="([^"]+)"/)[1]}" fill="currentColor">${logoSrc.match(/<path[^>]*\/>/)[0]}</svg>`;
 
-// ---------- the ascii screen: a spinning donut, drawn like the site's AsciiScene ----------
-const DONUT = JSON.parse(readFileSync(here('donut-frames.json'), 'utf8'));
-const LOOP_S = 12;
-const FPS = Math.round(DONUT.frames.length / LOOP_S);
-// start the loop on a three-quarter view instead of edge-on
-const START = Math.round(DONUT.frames.length * 0.3);
-const asciiFrames = [...DONUT.frames.slice(START), ...DONUT.frames.slice(0, START)].map((rows, i) => {
-  const txt = rows.map(([r]) => esc(r).replace(/\s+$/, '')).join('\n');
-  return `<pre class="fr" style="animation-delay:${((i * LOOP_S) / DONUT.frames.length).toFixed(3)}s">${txt}</pre>`;
-}).join('\n');
+// ---------- the ascii screen: a spinning donut, rendered by textel (github.com/feelgxxd/textel) ----------
+// tools/textel-donut.svg was made with:
+//   npx @feelgxxd/textel@1.0.0 render --example donut --size 112x56 --aspect 1.47 --frames 96 --fps 8 \
+//     --color "#301000,#ffb000" --pitch 0.5 -o tools/textel-donut.svg
+// Its own frame animation is kept as is; it is only inlined and scaled to fit the screen.
+const TEXTEL = readFileSync(here('textel-donut.svg'), 'utf8');
+const FPS = Math.round(TEXTEL.match(/<g class="f"/g).length / Number(TEXTEL.match(/animation:t ([\d.]+)s/)[1]));
+const asciiFrames = TEXTEL.replace(/<title>[\s\S]*?<\/title>\n?/, '').replace(/^<svg ([^>]*?) width="[^"]*" height="[^"]*"/, '<svg class="tx" $1');
 const SCREEN_CSS = (theme, size) => `
   .screen{position:relative;width:${size}px;height:${size}px;border-radius:18px;overflow:hidden;flex:none;
     background:radial-gradient(ellipse at center,color-mix(in srgb,#ffb000 7%,#15130f),#15130f 70%);
@@ -97,12 +95,12 @@ const SCREEN_CSS = (theme, size) => `
     box-shadow:inset 0 0 60px rgb(0 0 0 / .55),0 0 0 6px var(--panel),0 0 0 7px var(--line)}
   .screen .lbl{position:absolute;top:12px;font-size:10px;letter-spacing:.15em;color:#8a8170;z-index:1}
   .screen .l{left:14px}.screen .r{right:14px}
-  .fr{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(${(size * 0.96 / 914).toFixed(3)});
-    font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;white-space:pre;color:#ffb000;text-shadow:0 0 .6em rgb(255 176 0 / .35);
-    visibility:hidden;animation:fr ${LOOP_S}s steps(1,end) infinite}
-  @keyframes fr{0%{visibility:visible}${(100 / DONUT.frames.length).toFixed(4)}%{visibility:hidden}100%{visibility:hidden}}
+  .tx{position:absolute;left:50%;top:50%;width:${Math.round(size * 0.96)}px;height:auto;transform:translate(-50%,-50%);
+    filter:drop-shadow(0 0 3px rgb(255 176 0 / .35))}
+  .tx text{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600}
   .screen::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgb(0 0 0 / .18) 0 1px,transparent 1px 3px)}
-  .cap{font-size:11px;color:var(--mute);text-align:center;letter-spacing:.05em}`;
+  .cap{font-size:11px;color:var(--mute);text-align:center;letter-spacing:.05em}
+  .cap b{color:var(--accent-text);font-weight:500}`;
 const screen = () => `<div class="screen"><span class="lbl l">MESH: DONUT</span><span class="lbl r">${String(FPS).padStart(2, '0')} FPS</span>
 ${asciiFrames}
 </div>`;
@@ -150,7 +148,7 @@ const heroParts = (t) => ({
     <p class="aka"><span class="dim">a.k.a.</span> Berk Beken <span class="dim">/ </span><span class="role">game &amp; software developer</span><span class="caret"></span></p>
     <p class="intro">i build gameplay systems, engine tools and the web around them. this is the source. the tapes, logs and jokes live on the site.</p>`,
   proof: `<ul class="proof">${PROOF.map((p) => `<li><i>✓</i> ${esc(p)}</li>`).join('')}</ul>`,
-  scene: `<figure class="scene">${screen()}<figcaption class="cap">can't drag this one. github said no.</figcaption></figure>`,
+  scene: `<figure class="scene">${screen()}<figcaption class="cap">rendered with <b>textel</b>. can't drag this one.</figcaption></figure>`,
 });
 const LABEL_HERO = 'feelgxxd, a.k.a. Berk Beken, game & software developer';
 const hero = (t, theme) => {
@@ -247,8 +245,9 @@ const tape = (t, tp, i) => svg(TW, TH, [F.d600, F.m400, F.m500], `
 
 // ================= ELSEWHERE (games that are not on github) =================
 const ELSEWHERE = [
-  { title: 'knightfall', kind: 'game', status: 'wip', cover: 'knightfall', cta: '▸ demo on itch.io', url: 'https://berkbeken.itch.io/knightfall',
-    desc: 'a roguelike deckbuilder where your deck is a chess army. demo out, update 0.2 live.', stack: ['LÖVE2D', 'Lua'] },
+  { id: 'idle-of-carbon-city', title: 'idle of carbon city', kind: 'mobile', status: 'shipped', cover: 'idle', cta: '▸ google play',
+    url: 'https://play.google.com/store/apps/details?id=com.LugalGames.IdleOfCarbonCity',
+    desc: 'a mobile idle game from my time at lugal games. 1,000+ downloads on google play.', stack: ['Unity', 'C#'] },
   { title: 'claylings', kind: 'game', status: 'shipped', cover: 'claylings', cta: '▸ play on itch.io', url: 'https://berkbeken.itch.io/claylings',
     desc: 'herd the claylings to safety with your cursor. touch one and it explodes.', stack: ['PICO-8'] },
   { title: 'cinerace', kind: 'web game', status: 'live', cover: 'cinerace', cta: '▸ play daily', url: 'https://cinerace.vercel.app',
@@ -307,6 +306,104 @@ const footer = (t) => {
 <span class="tape"><span class="l">TAPE</span><span>00${digit(10, 6000)}:${digit(6, 600)}${digit(10, 100)}</span></span>`, t, 'sh*t that i have to deal with on a daily basis');
 };
 
+// ================= NOW PLAYING: what is on the deck right now =================
+// Edit NOW when the focus changes. The "latest" line follows tools/logs.json by itself.
+const LOGS = JSON.parse(readFileSync(here('logs.json'), 'utf8'));
+const NOW = {
+  title: 'knightfall', desc: 'roguelike deckbuilder. your deck is a chess army.',
+  version: '0.2', target: '1.0', progress: 0.2, cover: 'knightfall', stack: ['LÖVE2D', 'Lua'],
+  url: 'https://berkbeken.itch.io/knightfall', cta: '▸ play the demo', logs: /^knightfall/i,
+};
+const nowPlaying = (t) => {
+  const last = LOGS.find((p) => NOW.logs.test(p.title));
+  return svg(W, 128, [F.d700, F.m400, F.m500], `
+  .root{display:grid;grid-template-columns:160px 1fr 190px;gap:22px;align-items:center;padding:12px 22px 12px 12px;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+  .cv{position:relative;height:102px;border-radius:5px;overflow:hidden;border:1px solid var(--line);background:#000 url(data:image/jpeg;base64,${readFileSync(here(`covers/${NOW.cover}.jpg`)).toString('base64')}) center/cover}
+  .cv::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgb(0 0 0 / .16) 0 1px,transparent 1px 3px)}
+  .cv i{position:absolute;left:50%;top:50%;width:0;height:0;margin:-11px 0 0 -7px;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent rgb(255 255 255 / .9);filter:drop-shadow(0 1px 4px rgb(0 0 0 / .6));z-index:1}
+  .mid{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .eb{display:flex;align-items:center;gap:10px;font:500 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+  .eb b{color:var(--accent-text);font-weight:500}
+  .vu{display:flex;align-items:flex-end;gap:2px;height:12px}
+  .vu i{width:3px;background:var(--accent);transform-origin:bottom;animation:vu 1.1s ease-in-out infinite alternate}
+  @keyframes vu{to{transform:scaleY(.3)}}
+  h2{font:700 30px/1 'Chakra Petch',sans-serif;text-transform:uppercase;letter-spacing:.01em}
+  .ds{font-size:12.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lg{font-size:11.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lg span{color:var(--fg)}
+  .rt{display:flex;flex-direction:column;gap:9px}
+  .vr{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;color:var(--mute);text-transform:uppercase}
+  .vr b{color:var(--accent-text);font-weight:500}
+  .bar{position:relative;height:8px;border-radius:4px;background:var(--bg-2);border:1px solid var(--line)}
+  .bar .f{position:absolute;left:0;top:0;bottom:0;width:${NOW.progress * 100}%;border-radius:4px 0 0 4px;background:var(--accent);box-shadow:var(--glow)}
+  .bar .h{position:absolute;top:-4px;left:calc(${NOW.progress * 100}% - 1px);width:2px;height:14px;background:var(--fg);animation:blink 1.1s steps(1) infinite}
+  .cta{font:500 12px/1 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text);display:flex;justify-content:space-between}
+  .st{font-size:11px;color:var(--mute);letter-spacing:.03em}`,
+  `<div class="cv"><i></i></div>
+<div class="mid">
+  <p class="eb"><span class="led"></span><b>now playing</b><span class="vu">${[[40, -0.2], [90, -0.5], [60, -0.1], [100, -0.7], [35, -0.3]].map(([h, d]) => `<i style="height:${h}%;animation-delay:${d}s"></i>`).join('')}</span></p>
+  <h2>${esc(NOW.title)}</h2>
+  <p class="ds">${esc(NOW.desc)}</p>
+  ${last ? `<p class="lg">latest log · <span>${esc(last.title.toLowerCase().replace(NOW.logs, '').replace(/^\s*-\s*/, ''))}</span> · ${last.date}</p>` : ''}
+</div>
+<div class="rt">
+  <p class="vr"><span>update <b>${NOW.version}</b></span><span>→ ${NOW.target}</span></p>
+  <div class="bar"><span class="f"></span><span class="h"></span></div>
+  <p class="cta">${esc(NOW.cta)}</p><p class="st">${esc(NOW.stack.join(' · '))}</p>
+</div>`, t, `now playing: ${NOW.title}`);
+};
+
+// ================= SIGNAL: the contribution calendar as a tape deck level meter =================
+// One series (contributions per week), one hue; lit segments = level, so it reads like a VU meter.
+const CONTRIB = (() => { try { return JSON.parse(readFileSync(here('contrib.json'), 'utf8')); } catch { return { total: 0, days: [] }; } })();
+const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+const SIG = (() => {
+  const weeks = [];
+  CONTRIB.days.forEach((d, i) => { if (i % 7 === 0) weeks.push({ start: d.date, count: 0 }); weeks.at(-1).count += d.count; });
+  let streak = 0, best = 0;
+  for (const d of CONTRIB.days) { streak = d.count ? streak + 1 : 0; best = Math.max(best, streak); }
+  const active = CONTRIB.days.filter((d) => d.count).length;
+  const peak = weeks.reduce((m, w) => (w.count > m.count ? w : m), { count: 0 });
+  const byMonth = new Map();
+  for (const d of CONTRIB.days) { const k = d.date.slice(0, 7); byMonth.set(k, (byMonth.get(k) ?? 0) + d.count); }
+  const months = [...byMonth].map(([k, n]) => [`${MONTHS[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`, n]);
+  const total = CONTRIB.total;
+  const alt = `contributions over the last year as a level meter: ${total} in total, ${active} active days, best week ${peak.count}${peak.start ? ` (week of ${peak.start})` : ''}, longest streak ${best} days.`;
+  return { weeks, streak: best, active, peak, months, total, alt };
+})();
+const SEGS = 12;
+const signal = (t, theme) => {
+  const bar = theme === 'dark' ? '#ffb000' : '#c26a00';
+  const max = Math.max(1, SIG.peak.count);
+  const cols = SIG.weeks.map((w, i) => {
+    const lit = w.count ? Math.max(1, Math.round((w.count / max) * SEGS)) : 0;
+    const m = new Date(`${w.start}T00:00:00Z`);
+    const label = i === 0 || m.getUTCDate() <= 7 ? MONTHS[m.getUTCMonth()] : '';
+    const isPeak = w === SIG.peak;
+    return `<div class="c" style="animation-delay:${(i * 18)}ms">${isPeak ? `<b class="pk">${w.count}</b>` : ''}<div class="s">${Array.from({ length: SEGS }, (_, k) => `<i${k < lit ? ' class="on"' : ''}></i>`).join('')}</div><span class="m">${label}</span></div>`;
+  }).join('');
+  const ro = [['contributions', SIG.total], ['active days', SIG.active], ['best week', SIG.peak.count], ['longest streak', `${SIG.streak}d`]];
+  return svg(W, 236, [F.d600, F.m400, F.m500], `
+  .root{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 18px 10px;display:flex;flex-direction:column;gap:14px}
+  .hd{display:flex;align-items:stretch;border:1px solid var(--line);border-radius:5px;background:var(--bg-2)}
+  .ro{flex:1;padding:8px 14px;display:flex;flex-direction:column;gap:4px;border-right:1px solid var(--line)}
+  .ro:last-child{border-right:0}
+  .ro span{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+  .ro b{font:600 22px/1 'Chakra Petch',sans-serif;color:var(--fg);font-variant-numeric:tabular-nums}
+  .ch{position:relative;display:flex;justify-content:space-between;align-items:flex-end;height:118px;padding-top:16px}
+  .c{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;transform-origin:bottom;animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{transform:scaleY(0)}}
+  .s{display:flex;flex-direction:column-reverse;gap:2px}
+  .s i{display:block;width:10px;height:5px;border-radius:1px;background:var(--line)}
+  .s i.on{background:${bar};box-shadow:${theme === 'dark' ? '0 0 4px rgb(255 176 0 / .45)' : 'none'}}
+  .pk{position:absolute;top:-16px;font:500 10px/1 'IBM Plex Mono',monospace;color:var(--fg)}
+  .m{height:10px;font-size:9px;line-height:10px;color:var(--mute);letter-spacing:.04em;white-space:nowrap;width:10px;text-align:left;overflow:visible}
+  .ph{position:absolute;top:10px;bottom:16px;left:0;width:1px;background:var(--accent-text);opacity:.35;animation:sweep 14s linear infinite}
+  @keyframes sweep{to{left:100%}}`,
+  `<div class="hd">${ro.map(([k, v]) => `<p class="ro"><span>${k}</span><b>${v}</b></p>`).join('')}</div>
+<div class="ch">${cols}<span class="ph"></span></div>`, t, SIG.alt);
+};
+
 // ================= REPO BANNERS + SOCIAL PREVIEWS =================
 // Banner: top of each showcased repo's README (both themes, served from this repo).
 // Social: the 1280x640 link-preview card, uploaded by hand in each repo's settings.
@@ -363,9 +460,12 @@ const social = (t, tp, i) => svg(W, 415, [F.d600, F.d700, F.m400, F.m500], TAPE_
 
 // ================= write assets =================
 mkdirSync(new URL('banners/', ASSETS), { recursive: true });
-const SOCIAL = new URL('../social/', import.meta.url);
-mkdirSync(SOCIAL, { recursive: true });
-TAPES.forEach((tp, i) => writeFileSync(new URL(`${tp.repo}.svg`, SOCIAL), social(THEMES.dark, tp, i).replace(/width="830" height="415"/, 'width="1280" height="640"')));
+// social previews are only rebuilt on request: node tools/build.mjs --social && node tools/social.mjs
+if (process.argv.includes('--social')) {
+  const SOCIAL = new URL('../social/', import.meta.url);
+  mkdirSync(SOCIAL, { recursive: true });
+  TAPES.forEach((tp, i) => writeFileSync(new URL(`${tp.repo}.svg`, SOCIAL), social(THEMES.dark, tp, i).replace(/width="830" height="415"/, 'width="1280" height="640"')));
+}
 const files = [];
 const put = (name, s) => { writeFileSync(new URL(name, ASSETS), s); files.push([name, s.length]); };
 for (const [theme, t] of Object.entries(THEMES)) {
@@ -381,7 +481,10 @@ for (const [theme, t] of Object.entries(THEMES)) {
     put(`tape-${tp.repo}-${theme}.svg`, tape(t, tp, i));
     put(`banners/${tp.repo}-${theme}.svg`, banner(t, tp, i));
   });
-  ELSEWHERE.forEach((g) => put(`game-${g.title}-${theme}.svg`, elsewhere(t, g)));
+  ELSEWHERE.forEach((g) => put(`game-${g.id ?? g.title}-${theme}.svg`, elsewhere(t, g)));
+  put(`now-playing-${theme}.svg`, nowPlaying(t));
+  put(`sec-signal-${theme}.svg`, secHead(t, '04', 'signal', 'full history'));
+  put(`signal-${theme}.svg`, signal(t, theme));
   put(`footer-${theme}.svg`, footer(t));
 }
 
@@ -393,11 +496,12 @@ const pic = (name, alt, width, mobile) => {
   return `<picture>${m}<source media="(prefers-color-scheme: dark)" srcset="${src(name, 'dark')}"><source media="(prefers-color-scheme: light)" srcset="${src(name, 'light')}"><img alt="${esc(alt)}" src="${src(name, 'dark')}" width="${width}"></picture>`;
 };
 const a = (href, inner) => `<a href="${href}">${inner}</a>`;
-const LOGS = JSON.parse(readFileSync(here('logs.json'), 'utf8'));
 const readme = `<!-- generated by tools/build.mjs. edit that, not this. -->
 ${a(SITE, pic('hero', LABEL_HERO, '100%'))}
 
 <p>${BUTTONS.map(([id, label]) => a(LINKS[id], pic(`btn-${id}`, label.replace(/^\W+/, ''), '24%', `btn-${id}-mobile`))).join('&nbsp;')}</p>
+
+${a(NOW.url, pic('now-playing', `now playing: ${NOW.title}, ${NOW.desc}`, '100%'))}
 
 ${a(`${GH}?tab=repositories`, pic('sec-tapes', '01 selected tapes', '100%'))}
 
@@ -406,11 +510,24 @@ ${a(`${GH}?tab=repositories`, pic('sec-tapes', '01 selected tapes', '100%'))}
 
 ${a(LINKS.itch, pic('sec-elsewhere', '02 off github', '100%'))}
 
-<p align="center">${ELSEWHERE.map((g) => a(g.url, pic(`game-${g.title}`, `${g.title}: ${g.desc}`, '33%'))).join('')}</p>
+<p align="center">${ELSEWHERE.map((g) => a(g.url, pic(`game-${g.id ?? g.title}`, `${g.title}: ${g.desc}`, '33%'))).join('')}</p>
 
 ${a(`${SITE}/blog/`, pic('sec-logs', '03 latest logs', '100%'))}
 
 ${LOGS.map((p) => `- \`${p.date}\` &nbsp;[${p.title.toLowerCase()}](${SITE}/blog/${p.id}/)`).join('\n')}
+
+${a(GH, pic('sec-signal', '04 signal', '100%'))}
+
+${pic('signal', SIG.alt, '100%')}
+
+<details><summary><sub>signal, month by month</sub></summary>
+
+| month | contributions |
+|:--|--:|
+${SIG.months.map(([m, n]) => `| ${m} | ${n} |`).join('\n')}
+| **last year** | **${SIG.total}** |
+
+</details>
 
 <br>
 

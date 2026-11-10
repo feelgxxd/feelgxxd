@@ -3,6 +3,8 @@
 
 <p><a href="https://berkbeken.xo.je"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/btn-site-mobile-dark.svg"><source media="(max-width: 600px)" srcset="assets/btn-site-mobile-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/btn-site-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/btn-site-light.svg"><img alt="berkbeken.xo.je" src="assets/btn-site-dark.svg" width="24%"></picture></a>&nbsp;<a href="https://berkbeken.itch.io"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/btn-itch-mobile-dark.svg"><source media="(max-width: 600px)" srcset="assets/btn-itch-mobile-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/btn-itch-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/btn-itch-light.svg"><img alt="itch.io" src="assets/btn-itch-dark.svg" width="24%"></picture></a>&nbsp;<a href="https://www.linkedin.com/in/berk-beken/"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/btn-linkedin-mobile-dark.svg"><source media="(max-width: 600px)" srcset="assets/btn-linkedin-mobile-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/btn-linkedin-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/btn-linkedin-light.svg"><img alt="linkedin" src="assets/btn-linkedin-dark.svg" width="24%"></picture></a>&nbsp;<a href="mailto:berkbeken@outlook.com"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/btn-mail-mobile-dark.svg"><source media="(max-width: 600px)" srcset="assets/btn-mail-mobile-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/btn-mail-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/btn-mail-light.svg"><img alt="mail" src="assets/btn-mail-dark.svg" width="24%"></picture></a></p>
 
+<a href="https://berkbeken.itch.io/knightfall"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/now-playing-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/now-playing-light.svg"><img alt="now playing: knightfall, roguelike deckbuilder. your deck is a chess army." src="assets/now-playing-dark.svg" width="100%"></picture></a>
+
 <a href="https://github.com/feelgxxd?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sec-tapes-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/sec-tapes-light.svg"><img alt="01 selected tapes" src="assets/sec-tapes-dark.svg" width="100%"></picture></a>
 
 <p align="center"><a href="https://github.com/feelgxxd/tiny-software-renderer"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/tape-tiny-software-renderer-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/tape-tiny-software-renderer-light.svg"><img alt="tiny renderer: multithreaded, tile-based software rasterizer in c++17. no graphics api. pbr, shadow maps, up to 26× faster with simd." src="assets/tape-tiny-software-renderer-dark.svg" width="33%"></picture></a><a href="https://github.com/feelgxxd/textel"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/tape-textel-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/tape-textel-light.svg"><img alt="textel: turns 3d models into animated ascii art, in the terminal and on the web. a cli, a library and two web components." src="assets/tape-textel-dark.svg" width="33%"></picture></a><a href="https://github.com/feelgxxd/emergent-crowd-dynamics"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/tape-emergent-crowd-dynamics-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/tape-emergent-crowd-dynamics-light.svg"><img alt="crowd dynamics: real-time agent-based simulation of pressure, personal space and local order in collective movement." src="assets/tape-emergent-crowd-dynamics-dark.svg" width="33%"></picture></a></p>
@@ -10,7 +12,7 @@
 
 <a href="https://berkbeken.itch.io"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sec-elsewhere-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/sec-elsewhere-light.svg"><img alt="02 off github" src="assets/sec-elsewhere-dark.svg" width="100%"></picture></a>
 
-<p align="center"><a href="https://berkbeken.itch.io/knightfall"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-knightfall-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/game-knightfall-light.svg"><img alt="knightfall: a roguelike deckbuilder where your deck is a chess army. demo out, update 0.2 live." src="assets/game-knightfall-dark.svg" width="33%"></picture></a><a href="https://berkbeken.itch.io/claylings"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-claylings-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/game-claylings-light.svg"><img alt="claylings: herd the claylings to safety with your cursor. touch one and it explodes." src="assets/game-claylings-dark.svg" width="33%"></picture></a><a href="https://cinerace.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-cinerace-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/game-cinerace-light.svg"><img alt="cinerace: a movie connection game. hop from film to film through the people who made them." src="assets/game-cinerace-dark.svg" width="33%"></picture></a></p>
+<p align="center"><a href="https://play.google.com/store/apps/details?id=com.LugalGames.IdleOfCarbonCity"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-idle-of-carbon-city-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/game-idle-of-carbon-city-light.svg"><img alt="idle of carbon city: a mobile idle game from my time at lugal games. 1,000+ downloads on google play." src="assets/game-idle-of-carbon-city-dark.svg" width="33%"></picture></a><a href="https://berkbeken.itch.io/claylings"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-claylings-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/game-claylings-light.svg"><img alt="claylings: herd the claylings to safety with your cursor. touch one and it explodes." src="assets/game-claylings-dark.svg" width="33%"></picture></a><a href="https://cinerace.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-cinerace-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/game-cinerace-light.svg"><img alt="cinerace: a movie connection game. hop from film to film through the people who made them." src="assets/game-cinerace-dark.svg" width="33%"></picture></a></p>
 
 <a href="https://berkbeken.xo.je/blog/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sec-logs-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/sec-logs-light.svg"><img alt="03 latest logs" src="assets/sec-logs-dark.svg" width="100%"></picture></a>
 
@@ -19,6 +21,31 @@
 - `2026-10-25` &nbsp;[knightfall - devlog#4](https://berkbeken.xo.je/blog/knightfall-devlog4/)
 - `2026-10-24` &nbsp;[knightfall - devlog#3](https://berkbeken.xo.je/blog/knightfall-devlog3/)
 - `2026-10-22` &nbsp;[knightfall - devlog#2](https://berkbeken.xo.je/blog/knightfall-devlog2/)
+
+<a href="https://github.com/feelgxxd"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sec-signal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/sec-signal-light.svg"><img alt="04 signal" src="assets/sec-signal-dark.svg" width="100%"></picture></a>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/signal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/signal-light.svg"><img alt="contributions over the last year as a level meter: 299 in total, 78 active days, best week 72 (week of 2026-11-08), longest streak 18 days." src="assets/signal-dark.svg" width="100%"></picture>
+
+<details><summary><sub>signal, month by month</sub></summary>
+
+| month | contributions |
+|:--|--:|
+| nov 2025 | 0 |
+| dec 2025 | 0 |
+| jan 2026 | 66 |
+| feb 2026 | 23 |
+| mar 2026 | 12 |
+| apr 2026 | 6 |
+| may 2026 | 23 |
+| jun 2026 | 16 |
+| jul 2026 | 0 |
+| aug 2026 | 4 |
+| sep 2026 | 6 |
+| oct 2026 | 31 |
+| nov 2026 | 112 |
+| **last year** | **299** |
+
+</details>
 
 <br>
 

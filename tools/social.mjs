@@ -1,6 +1,6 @@
 // Rasterizes social/*.svg (written by build.mjs) into 1280x640 PNGs with headless Edge or Chrome.
 // Upload each PNG in its repo: Settings -> General -> Social preview.
-// usage: node tools/build.mjs && node tools/social.mjs
+// usage: node tools/build.mjs --social && node tools/social.mjs
 import { readdirSync, existsSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
