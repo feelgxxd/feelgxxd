@@ -24,7 +24,7 @@
 
 <a href="https://github.com/feelgxxd"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sec-signal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/sec-signal-light.svg"><img alt="04 signal" src="assets/sec-signal-dark.svg" width="100%"></picture></a>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/signal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/signal-light.svg"><img alt="contributions over the last year as a level meter: 325 in total, 81 active days, best week 98 (week of 2026-11-08), longest streak 18 days." src="assets/signal-dark.svg" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/signal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/signal-light.svg"><img alt="contributions over the last year as a level meter: 329 in total, 82 active days, best week 102 (week of 2026-11-08), longest streak 18 days." src="assets/signal-dark.svg" width="100%"></picture>
 
 <details><summary><sub>signal, month by month</sub></summary>
 
@@ -42,8 +42,8 @@
 | aug 2026 | 4 |
 | sep 2026 | 6 |
 | oct 2026 | 31 |
-| nov 2026 | 138 |
-| **last year** | **325** |
+| nov 2026 | 142 |
+| **last year** | **329** |
 
 </details>
 
