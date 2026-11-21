@@ -16,15 +16,15 @@
 
 <a href="https://berkbeken.xo.je/blog/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sec-logs-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/sec-logs-light.svg"><img alt="03 latest logs" src="assets/sec-logs-dark.svg" width="100%"></picture></a>
 
-- `2026-11-08` &nbsp;[knightfall - devlog#6 - update 0.2](https://berkbeken.xo.je/blog/knightfall-devlog6/)
-- `2026-10-28` &nbsp;[knightfall - devlog#5 - demo](https://berkbeken.xo.je/blog/knightfall-devlog5/)
-- `2026-10-25` &nbsp;[knightfall - devlog#4](https://berkbeken.xo.je/blog/knightfall-devlog4/)
-- `2026-10-24` &nbsp;[knightfall - devlog#3](https://berkbeken.xo.je/blog/knightfall-devlog3/)
-- `2026-10-22` &nbsp;[knightfall - devlog#2](https://berkbeken.xo.je/blog/knightfall-devlog2/)
+- `2026-11-20` &nbsp;[arclash - devlog#7 - 0.9](https://berkbeken.xo.je/blog/arclash-devlog7/)
+- `2026-11-19` &nbsp;[arclash - devlog#6](https://berkbeken.xo.je/blog/arclash-devlog6/)
+- `2026-11-18` &nbsp;[arclash - devlog#5](https://berkbeken.xo.je/blog/arclash-devlog5/)
+- `2026-11-16` &nbsp;[arclash - devlog#4](https://berkbeken.xo.je/blog/arclash-devlog4/)
+- `2026-11-15` &nbsp;[arclash - devlog#3](https://berkbeken.xo.je/blog/arclash-devlog3/)
 
 <a href="https://github.com/feelgxxd"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sec-signal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/sec-signal-light.svg"><img alt="04 signal" src="assets/sec-signal-dark.svg" width="100%"></picture></a>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/signal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/signal-light.svg"><img alt="contributions over the last year as a level meter: 426 in total, 88 active days, best week 103 (week of 2026-11-08), longest streak 18 days." src="assets/signal-dark.svg" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/signal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/signal-light.svg"><img alt="contributions over the last year as a level meter: 445 in total, 89 active days, best week 115 (week of 2026-11-15), longest streak 18 days." src="assets/signal-dark.svg" width="100%"></picture>
 
 <details><summary><sub>signal, month by month</sub></summary>
 
@@ -42,8 +42,8 @@
 | aug 2026 | 4 |
 | sep 2026 | 6 |
 | oct 2026 | 31 |
-| nov 2026 | 239 |
-| **last year** | **426** |
+| nov 2026 | 258 |
+| **last year** | **445** |
 
 </details>
 

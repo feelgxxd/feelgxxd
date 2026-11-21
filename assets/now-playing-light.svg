@@ -47,7 +47,7 @@
   <p class="eb"><span class="led"></span><b>now playing</b><span class="vu"><i style="height:40%;animation-delay:-0.2s"></i><i style="height:90%;animation-delay:-0.5s"></i><i style="height:60%;animation-delay:-0.1s"></i><i style="height:100%;animation-delay:-0.7s"></i><i style="height:35%;animation-delay:-0.3s"></i></span></p>
   <h2>knightfall</h2>
   <p class="ds">roguelike deckbuilder. your deck is a chess army.</p>
-  <p class="lg">latest log · <span>devlog#6 - update 0.2</span> · 2026-11-08</p>
+  
 </div>
 <div class="rt">
   <p class="vr"><span>update <b>0.2</b></span><span>→ 1.0</span></p>
